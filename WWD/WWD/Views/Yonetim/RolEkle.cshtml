@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "RolEkle";
+}
+<div class="container-fluid">
+    <div class="row" style="background-color:white;">
+
+        <h2>RolEkle</h2>
+        <form method="post" action="/Yonetim/RolEle" id="rolform">
+            <input type="text" name="roladi" value="" />
+            <button type="submit" class="rolekle">EKLE</button>
+        </form>
+    </div>
+    <div class="row" style="background-color:white;">
+
+        <h2>RolEkle</h2>
+        <form method="post" action="/Yonetim/RolAta" id="rolform">
+            <select name="KullaniciAdi">
+                @if (true)
+                {
+                    foreach (MembershipUser item in ViewBag.admin)
+                    {
+                        <option value="@item.UserName">@item.UserName</option>
+                    }
+                }
+ 
+            </select>
+            <select name="RolAdi">
+                @if (true)
+                {
+                    foreach (string item in ViewBag.rol)
+                    {
+                        <option value="@item">@item</option>
+                    }
+                }
+                
+            </select>
+            <input type="text" name="roladi" value="" />
+            <button type="submit" class="rolekle">EKLE</button>
+        </form>
+    </div>
+</div>

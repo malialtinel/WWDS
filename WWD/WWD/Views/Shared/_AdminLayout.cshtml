@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="/Content/admin/assets/dist/img/ico/fav.png">
+    <link href="/Content/admin/assets/plugins/jquery-ui-1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/admin/assets/plugins/materialize/css/materialize.min.css" rel="stylesheet">
+    <link href="/Content/admin/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/admin/assets/plugins/animate/animate.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/Content/admin/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/admin/assets/plugins/monthly/monthly.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/admin/assets/plugins/simplebar/dist/simplebar.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/admin/assets/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/admin/assets/dist/css/stylematerial.css" rel="stylesheet">
+</head>
+<body>
+    <div id="wrapper">
+        <!--navbar top-->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <!-- Logo -->
+            <a class="navbar-brand pull-left" href="index.html">
+                <img src="/Content/admin/assets/dist/img/222222.png" alt="logo" width="205" height="60">
+            </a>
+            <a id="menu-toggle">
+                <i class="material-icons">apps</i>
+            </a>
+            <div class="navbar-custom-menu hidden-xs">
+                <ul class="nav navbar-nav navbar-left hidden-xs">
+                    <li class="top-search "><a href="#search"><i class="material-icons">search</i></a></li>
+                    <li>
+                        <div id="search" class="top-search">
+                            <button type="button" class="close">x</button>
+                            <form>
+                                <input type="search" value="" placeholder="type For searching..." />
+                                <button type="submit" class="btn">Search</button>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar navbar-right">
+                
+                    <li class="dropdown">
+                        <a class='dropdown-button user-pro' href='#' data-activates='dropdown-user'>
+                            <img src="/Content/admin/assets/dist/img/avatar5.png" class="img-circle" height="45" width="50" alt="User Image">
+                        </a>
+                        <ul id='dropdown-user' class='dropdown-content'>
+                    
+                            <li>
+                                <a href="/Yonetim/Cikis"><i class="material-icons">lock</i> Logout</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="sidebar-wrapper" class="waves-effect" data-simplebar>
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="list-header">Administration Panel ---</li>
+                        <li class="active-link"><a href="index.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+                        <li>
+                            <a><i class="material-icons">email</i>Project<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="/Yonetim/Bekleyenler">Waiting For Approved</a></li>
+                                <li><a href="/Yonetim/Bitenler">Finished</a></li>
+                                <li><a href="/Yonetim/DevamEdenler">Continuing</a></li>
+                            </ul>
+                        </li>
+                     
+                        <li class="list-divider"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="page-content-wrapper">
+            <div class="page-content">
+                <section class="content-header">
+                    <div class="header-icon">
+                        <i class="fa fa-tachometer"></i>
+                    </div>
+                    <div class="header-title">
+                        <h1> Dashboard</h1>
+                    </div>
+                </section>
+                <div class="container-fluid">
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="preloader">
+        <div class="preloader-position">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-teal">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/Content/admin/assets/plugins/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/jquery-ui-1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/materialize/js/materialize.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/metismenu-master/dist/metisMenu.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/malihu-custom-scrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/simplebar/dist/simplebar.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/dist/js/custom.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/sparkline/sparkline.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/chartJs/Chart.min.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/plugins/monthly/monthly.js" type="text/javascript"></script>
+    <script src="/Content/admin/assets/dist/js/main.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            function slscroll() {
+                $('.chat_list , .activity-list , .message_inner').slimScroll({
+                    size: '3px',
+                    height: '320px',
+                    allowPageScroll: true,
+                    railVisible: true
+                });
+            }
+            slscroll();
+            function chatscroll() {
+                $('.chat_list').slimScroll({
+                    size: '3px',
+                    height: '290px'
+                });
+            }
+            chatscroll();
+            $('#m_calendar').monthly({
+                mode: 'event',
+                xmlUrl: 'events.xml'
+            });
+            $.fn.refreshMe = function (opts) {
+                var $this = this,
+                        defaults = {
+                            ms: 1500,
+                            started: function () { },
+                            completed: function () { }
+                        },
+                        settings = $.extend(defaults, opts);
+
+                var panelToRefresh = $this.parents('.panel').find('.refresh-container');
+                var dataToRefresh = $this.parents('.panel').find('.refresh-data');
+                var ms = settings.ms;
+                var started = settings.started;
+                var completed = settings.completed;
+                $this.click(function () {
+                    $this.addClass("fa-spin");
+                    panelToRefresh.show();
+                    started(dataToRefresh);
+                    setTimeout(function () {
+                        completed(dataToRefresh);
+                        panelToRefresh.fadeOut(800);
+                        $this.removeClass("fa-spin");
+                    }, ms);
+                    return false;
+                });
+            };
+
+            $(document).ready(function () {
+                $('.refresh, .refresh2').refreshMe({
+                    started: function (ele) {
+                        ele.html("Getting new data..");
+                    },
+                    completed: function (ele) {
+                        ele.html("This is the new data after refresh..");
+                    }
+                });
+            });
+
+            var ctx = document.getElementById("lineChart");
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                    datasets: [{
+                        label: "Total income",
+                        borderColor: "#73879C",
+                        borderWidth: "1",
+                        backgroundColor: "#73879C",
+                        data: [22, 44, 67, 43, 76, 45, 12, 45, 65, 55, 42, 61, 73]
+                    }, {
+                        label: "Total Expense",
+                        borderColor: "rgba(26, 187, 156, 0.64)",
+                        borderWidth: "1",
+                        backgroundColor: "rgba(26, 187, 156, 0.64)",
+                        pointHighlightStroke: "rgba(26, 187, 156, 0.64)",
+                        data: [16, 32, 18, 26, 42, 33, 44, 24, 19, 16, 67, 71, 65]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    }
+
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

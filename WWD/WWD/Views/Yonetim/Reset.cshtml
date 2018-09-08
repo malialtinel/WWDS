@@ -1,0 +1,88 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parolamı Unuttum</title>
+
+    <link rel="shortcut icon" href="/Content/Flag/ico1.png">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="/Content/admin/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/Content/admin/assets/plugins/materialize/css/materialize.min.css" rel="stylesheet">
+
+    <link href="/Content/admin/assets/plugins/animate/animate.css" rel="stylesheet" />
+
+    <link href="/Content/admin/assets/dist/css/stylematerial.css" rel="stylesheet">
+</head>
+
+<body class="sign-section">
+    <div class="container sign-cont animated bounceIn">
+        <div class="row sign-row">
+            <div class="sign-title text-center">
+                <h2 class="teal-text"><i class="fa fa-lock fa-4x"></i></h2>
+                <h2 class="teal-text">Şifreni Değiştir</h2>
+            </div>
+            <form class="col s12" id="reg-form" action="/Yonetim/Resetle" method="post">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="text" class="validate" required name="UserAdi">
+                        <label for="email">Kullanıcı Adı</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="text" class="validate" required name="GizliSoru">
+                        <label for="email">Gizli Soru?</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="text" class="validate" required name="GizliCevap">
+                        <label for="email">Gizli Cevap</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="password" class="validate" required name="Parola">
+                        <label for="email">Yeni Şifre</label>
+                    </div>
+                </div>
+
+                <div class="row pull-right">
+                    <div class="input-field col s12">
+                        <button class="btn btn-large btn-register waves-effect waves-light teal" type="submit" name="action">
+                            Değiştir
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="/Content/admin/assets/plugins/jQuery/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+    <script src="/Content/admin/assets/plugins/materialize/js/materialize.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+</body>
+
+
+
+</html>

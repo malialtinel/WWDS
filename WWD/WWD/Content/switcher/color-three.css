@@ -1,0 +1,40 @@
+/* ThemeColor */
+.as-color,.as-colorhover:hover,.widget_categories ul > li:hover > a,.widget_categories ul > li:hover > a:before,.as-page-title h1,
+.as-breadcrumb li a,.as-breadcrumb li:before,.widget_search form label:before,blockquote:before,blockquote:after,.as-gallery ul li figure figcaption h3,
+.as-small-view ul li:hover .as-icon,.as-small-view ul li:hover h2,.as-event-info time {
+	color: #AF4D32;
+}
+
+.as-bgcolor,.as-bgcolorhover:hover,/* Logo */.logo:before,/* Navigation */.main-navigation ul li a:before,.main-navigation .as-dropdown > li:hover > a,
+/* MainSlider */.flex-control-paging li a.flex-active,.flex-control-paging li a:hover,.flex-direction-nav a:hover,/* Caption */.as-caption h1:before,
+/* ProgRess */div.progressBar,.as-volunteerinfo h2:before,.as-volunteer ul li:hover .as-volunteerinfo,
+.as-bloghover ul li a:hover,.as-bloghover time,.as-pagination li:hover a,.as-pagination li.active a,.as-tags a:hover,
+.as-causes-grid ul li:hover .as-causes-btn,.as-shop-list ul li:hover .as-cartbtn,.nav-tabs > li.active > a,
+.as-contact-info li span:before,.as-contact-info li a:before,.owl-dot.active,.ticker-controls li a:hover,.percent-bar,.layout-btn a span {
+	background-color: #AF4D32;
+}
+
+.as-bordercolor,.as-bordercolorhover:hover,.as-circle-btn a:hover,.as-dropdown,.as-fancy-divider:before,
+.as-fancy-divider span.as-first-dote,.as-fancy-divider span.as-third-dote,.as-fancy-divider:after,.as-slide-testimonial figure img,
+.as-page-title h1,#as-comments ul li figure,.as-list-view ul li .map-btn,.as-causes figure figcaption a,.as-team-donate-wrap a,.as-map,
+.as-donation-section ul li.as-current .donation-wrap,.as-underconstruction .countdown-section,.as-underconstruction .countdown-amount,.as-404page span {
+	border-color: #AF4D32;
+}
+
+.nav-tabs > li.active > a:before {
+	border-top: 8px solid #AF4D32;
+}
+
+/* White Color Scheme */
+.as-stripinfo li a,.as-stripinfo li,.as-topstrip .as-social-media li a,.flex-direction-nav a:hover,
+.main-navigation .as-dropdown > li:hover > a,.ticker-controls li a:hover,.as-causes-grid ul li:hover .as-causes-btn,
+.as-shop-list ul li:hover .as-cartbtn,.as-action-style h2,.as-action-button a,.widget_newslatter form ul li input[type='submit'],
+.as-footer p, .as-footer a,.as-grid-view ul li:hover h2 a,.as-grid-view ul li:hover span,.as-readmore:hover,
+.as-pagination li.active a,.as-tags a:hover,.as-causes-list .as-causes-btn,.as-festured,.as-detail-strip .as-causes-btn,
+.as-detail-btn:hover,.nav-tabs > li.active > a,.as-contact-info li i,.modal-header h4,.cart-box-btn a:hover  {
+	color: #fff !important;
+}
+.as-volunteer ul li:hover .as-volunteerinfo h2:before { background-color: #fff; }
+.as-action-button a {
+	border-color: #fff;
+}

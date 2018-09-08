@@ -1,0 +1,353 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <!-- Css Files -->
+    <link href="/Content/css/bootstrap.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.css" rel="stylesheet">
+    <link href="/Content/style.css" rel="stylesheet">
+    <link href="/Content/css/color.css" rel="stylesheet">
+    <link href="/Content/css/dl-menu.css" rel="stylesheet">
+    <link href="/Content/css/flexslider.css" rel="stylesheet">
+    <link href="/Content/css/prettyphoto.css" rel="stylesheet">
+    <link href="/Content/css/responsive.css" rel="stylesheet">
+    <!-- Color Css Files Start -->
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-one.css" title="color-one" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-two.css" title="color-two" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-three.css" title="color-three" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-four.css" title="color-four" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-five.css" title="color-five" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-six.css" title="color-six" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-seven.css" title="color-seven" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-eight.css" title="color-eight" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-nine.css" title="color-nine" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/pattren1.css" title="pattren1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/pattren2.css" title="pattren2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/pattren3.css" title="pattren3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/pattren4.css" title="pattren4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/pattren5.css" title="pattren5" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/background1.css" title="background1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/background2.css" title="background2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/background3.css" title="background3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/background4.css" title="background4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" href="/Content/switcher/background5.css" title="background5" media="screen" />
+    <style></style>
+    @RenderSection("sitil", false)
+
+
+</head>
+<body style="background-color:white;">
+    <!--// Main Wrapper //-->
+    <div class="as-mainwrapper">
+        <!--// Header //-->
+        <header id="as-header" class="as-absolute">
+            <!--// TopStrip //-->
+            <div class="container">
+                <div class="as-topstrip as-bgcolor">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="as-stripinfo">
+                                <li><i class="fa fa-phone"></i> (0216) 712 14 60</li>
+                                <li><i class="fa fa-envelope-o"></i> <a href="#" target="_top">info@wwd.com</a></li>
+                                @if (User.Identity.IsAuthenticated && User.Identity.Name != null)
+                                {
+                                    <li> Hello @User.Identity.Name</li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="as-section-right">
+                                <ul class="as-social-media">
+                                    <li><a href="#" class="fa fa-facebook"></a></li>
+                                    <li><a href="#" class="fa fa-twitter"></a></li>
+                                    <li><a href="#" class="fa fa-google-plus"></a></li>
+                                    <li><a href="#" class="fa fa-linkedin"></a></li>
+                                    <li><a href="#" class="fa fa-youtube"></a></li>
+                                </ul>@if (TempData["adad"] != null)
+                                {
+                                    <p>@TempData["adad"]</p>
+                                }
+                               @if (!User.IsInRole("Boss"))
+                               {
+                                <a href="/Kampanya/Index" class="as-donate-btn"> Start a Project </a>
+                               }
+                                <!--Modal açıver -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--// TopStrip //-->
+            <div class="container">
+                <div class="as-header-bar">
+                    <div class="row">
+                        <div class="col-md-2"><a href="/Home/Index" class="logo"><img src="~/Content/images/112.png" alt=""></a></div>
+                        <div class="col-md-10">
+                            <div class="as-section-right">
+                                <nav class="main-navigation">
+                                    <ul>
+                                        <li><a href="/Home/Index">Home</a></li>
+                                        <li><a href="/Kategori/Index">Categories</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal">about</a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#myModal2">contact us</a></li>
+                                        @if (User.Identity.IsAuthenticated && User.IsInRole("Boss"))
+                                        {
+                                            <li><a href="/Yonetim/Index">Dashboard</a></li>
+                                        }
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li><a href="/Yonetim/Cikis">LogOut</a></li>
+                                        }
+                                        @if (User.Identity.IsAuthenticated && !User.IsInRole("Boss"))
+                                        {
+                                            <li><a href="/Kullanici/Index/@Membership.GetUser(User.Identity.Name).ProviderUserKey">Profile</a></li>
+                                        }
+                                        @if (!User.Identity.IsAuthenticated)
+                                        {
+                                            <li><a href="/Yonetim/Giris">LogIn</a></li>
+                                            <li><a href="/Yonetim/Kayit">SignUp</a></li>
+                                        }
+                                    </ul>
+                                </nav>
+                                <div class="as-circle-btn">
+                                    <a href="#" class="fa fa-search as-colorhover" data-toggle="modal" data-target="#searchmodal"></a>
+
+                                </div>
+                            </div>
+                            <!--// Responsive Menu //-->
+                            <div id="as-menu" class="as-menuwrapper">
+                                <button class="as-trigger">Open Menu</button>
+                                
+                            </div>
+                            <!--// Responsive Menu //-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--// Header //-->
+        <div class="as-minheader">
+            <span class="full-pattren"></span>
+
+        </div>
+        @RenderBody()
+
+        <!--// Footer //-->
+        <div class="as-footer">
+            <div class="container">
+                <div class="row">
+                    <aside class="widget widget_info col-md-3">
+                        <a href="#" class="footer-logo"><img src="~/Content/images/ff.png" alt=""></a>
+                        <p>Life is easier all together.</p>
+                        <ul>
+                            <li><i class="fa fa-home"></i> Meşrutiyet Köyü, Şile,Turkey</li>
+                            <li><i class="fa fa-envelope-o"></i> <a href="#" target="_top">info@wwd.com</a></li>
+                            <li><i class="fa fa-phone"></i> (0216) 712 14 60</li>
+                        </ul>
+                    </aside>
+                    <aside class="widget widget_categories col-md-3">
+                        <div class="as-strip-title"> <h3>Quick Links</h3> </div>
+                        <ul>
+                            <li><a href="#" data-toggle="modal" data-target="#myModal">About Us</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#myModal3">Delivery Information</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#myModal4">Terms and Conditions</a></li>
+                          
+                        </ul>
+                    </aside>
+                    <aside class="widget widget_categories col-md-3">
+                       
+                        <ul>
+
+                            <li><a href="#" data-toggle="modal" data-target="#myModal5">Privacy Policy</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#myModal2">Contact Us</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#myModal7">Return Policy</a></li>
+
+                        </ul>
+                    </aside>
+
+
+                    
+                </div>
+            </div>
+            <footer class="copyright-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6"><div class="copyright-text"><p>© 2017 WWD, All Right Reserved</p></div></div>
+                        <div class="col-md-6">
+                            <a href="#" class="backtop-btn"><i class="fa fa-angle-double-up as-color"></i></a>
+                            <ul class="as-media-network">
+                                <li><a href="#" class="fa fa-facebook"></a></li>
+                                <li><a href="#" class="fa fa-twitter"></a></li>
+                                <li><a href="#" class="fa fa-google-plus"></a></li>
+                                <li><a href="#" class="fa fa-linkedin"></a></li>
+                                <li><a href="#" class="fa fa-youtube"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!--// Footer //-->
+
+    </div>
+    <!--// Main Wrapper //-->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="color:white;">This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="color:white;">This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal3" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="color:white;">This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal4" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="color:white;">This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal5" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="color:white;">This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal6" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="color:white;">This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal7" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="color:white;">This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.This is a large modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchmodal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header as-bgcolor">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                    <h4>Search</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-search" method="get" action="/Search/Arama">
+                        <input type="text" placeholder="Enter any keyword and press enter" name="haydar" required>
+                        <label> <input type="submit" value=""> </label>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search Modal -->
+    <!-- jQuery (necessary for JavaScript plugins) -->
+    <script src="/Content/script/jquery.min.js"></script>
+    <script src="/Content/script/modernizr.js"></script>
+    <script src="/Content/script/bootstrap.min.js"></script>
+    <script src="/Content/script/jquery.dlmenu.js"></script>
+    <script src="/Content/script/flexslider-min.js"></script>
+    <script src="/Content/script/goalProgress.min.js"></script>
+    <script src="/Content/script/jquery.countdown.min.js"></script>
+    <script src="/Content/script/jquery.prettyphoto.js"></script>
+    <script src="/Content/script/waypoints-min.js"></script>
+    <script src="/Content/script/owl.carousel.min.js"></script>
+    <script src="/Content/script/newsticker.js"></script>
+    <script src="/Content/script/parallex.js"></script>
+    <script src="/Content/script/styleswitch.js"></script>
+    <script src="/Content/script/functions.js"></script>
+    <!--</div>-->
+    @RenderSection("script", false)
+</body>
+</html>

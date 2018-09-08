@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Yukle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div>
+        <form action="/Kategori/Yukle" method="post" enctype="multipart/form-data">
+            <label class="as-style">
+                <select name="KategoriID" required>
+                    <option value="">Chose Category</option>
+                    @if (ViewBag.kat != null)
+                    {
+                        foreach (WWD.Models.Kategori ktg in ViewBag.kat)
+                        {
+                            <option value="@ktg.KategoriId">@ktg.KategoriAdi</option>
+                        }
+                    }
+                </select>
+            </label>
+
+            <input type="file" name="img" value="" />
+
+            <button type="submit" class="btn tingle-btn--default">
+                Yukle
+
+            </button>
+
+
+
+        </form>
+
+
+    </div>
+
+
+</div>

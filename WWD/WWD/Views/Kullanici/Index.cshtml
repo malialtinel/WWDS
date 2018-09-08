@@ -1,0 +1,402 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@model WWD.Models.Kullanici
+<div class="as-main-content">
+
+    <!--// MainSection //-->
+    <div class="as-main-section" style="padding-bottom: 20px; ">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-9">
+
+                    <figure class="as-team-thumb">
+                        <a href="#">
+                            @if (Model.ProfilFoto != null)
+                            {
+                                <img src="@Model.ProfilFoto" alt="">
+                            }
+                            else
+                            {
+                                <img src="~/Content/images/noi.jpg" alt="">
+
+                            }
+
+                        </a>
+                    </figure>
+                    <div class="as-team-detail">
+                        <h2>@Model.KullaniciIsim @Model.KullaniciSoyisim</h2>
+                    @if (Model.UserAdi == HttpContext.Current.User.Identity.Name)
+                    {
+                        <form action="/Kullanici/Editme/@Membership.GetUser(HttpContext.Current.User.Identity.Name).ProviderUserKey" enctype="multipart/form-data" method="post">
+                            @if (ViewBag.hata != null)
+                            {
+                                <p style="font-size:16px;color:red;">@ViewBag.hata</p>
+                            }
+
+                            <label>E-mail:</label>
+                            <p>@Model.Email</p>
+                            <input type="text" name="eposta" placeholder="New E-mail" />
+
+                            <label>@User.Identity.Name</label>
+
+
+                            <label>Upload a Photo:</label>
+                            <input type="file" value="" name="foto" />
+                            <button type="submit" class="btn btn-success">Update</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <label>E-mail:</label>
+                        <p>@Model.Email</p>
+                        
+                    }
+
+                        <ul class="as-team-network">
+                            <li><a href="#" class="as-bgcolorhover fa fa-facebook"></a></li>
+                            <li><a href="#" class="as-bgcolorhover fa fa-twitter"></a></li>
+                            <li><a href="#" class="as-bgcolorhover fa fa-linkedin"></a></li>
+                            <li><a href="#" class="as-bgcolorhover fa fa-pinterest-p"></a></li>
+                            <li><a href="#" class="as-bgcolorhover fa fa-skype"></a></li>
+                        </ul>
+                    </div><div class="clearfix"></div>
+                    <div class="row">
+                        @if (User.Identity.Name == Model.UserAdi)
+                        {
+                            <div class="col-md-12"><div class="as-team-designation"><h2>Your <span class="as-color">Activities</span></h2></div></div>
+                            <div class="col-md-12">
+                                <div class="as-shop-tab">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#home1" aria-controls="home1" role="tab" data-toggle="tab">Pending Projects</a></li>
+                                        <li role="presentation"><a href="#home2" aria-controls="home2" role="tab" data-toggle="tab">Active Projects</a></li>
+                                        <li role="presentation"><a href="#home3" aria-controls="home3" role="tab" data-toggle="tab">Successfully Done</a></li>
+                                        <li role="presentation"><a href="#home4" aria-controls="home4" role="tab" data-toggle="tab"> My Donations</a></li>
+                                        <li role="presentation"><a href="#home5" aria-controls="home5" role="tab" data-toggle="tab">Incoming Donations</a></li>
+                                    </ul>
+                                    <!-- Tab panes -->
+
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="home1">
+                                            <h5>Projects Detail</h5>
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Project name</th>
+                                                        <th>Goal</th>
+                                                        <th>Cancel</th>
+                                                        <th>Edit</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (ViewBag.bekleyen != null)
+                                                    {
+                                                        foreach (WWD.Models.Kampanya item in ViewBag.bekleyen)
+                                                        {
+
+                                                            <tr>
+                                                                <td>@item.Adi</td>
+                                                                @if (item.Stuffs.FirstOrDefault(x => x.KampanyaID == item.KampanyaId).Miktari != 0)
+                                                                {
+                                                                    <td>@item.Stuffs.FirstOrDefault(x => x.KampanyaID == item.KampanyaId).Miktari </td>
+                                                                }
+                                                                <td>
+                                                                    <a href="#" class="btn btn-danger kaldir" name="@item.KampanyaId">
+                                                                        <i class="fa fa-remove"></i> Remove
+                                                                    </a>
+                                                                </td>
+                                                                <td><a href="/Kampanya/Yenile/@item.KampanyaId">Edit</a></td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <p>You will see information </p>
+                                                            </td>
+                                                            <td>about donation</td>
+                                                            <td><p>here</p></td>
+                                                            <td>!!!</td>
+                                                        </tr>
+                                                    }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="home2">
+                                            <h5>Projects Detail</h5>
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Project name</th>
+                                                    <!--    <th>Raised</th>
+                                                        <th>Goal</th>-->
+                                                        <th>Edit</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (ViewBag.onaylanmis == null)
+                                                    {
+
+                                                        <tr>
+                                                            <td>
+                                                                <p>You will see information </p>
+                                                            </td>
+                                                            <td>about donation</td>
+                                                            <td><p>here</p></td>
+                                                            <td>!!!</td>
+                                                        </tr>
+
+                                                    }
+                                                    else
+                                                    {
+
+                                                        foreach (WWD.Models.Kampanya item in ViewBag.onaylanmis)
+                                                        {
+                                                           
+                                                            <tr>
+                                                                <td><a href="/Kampanya/KampanyaDetay/@item.KampanyaId">@item.Adi</a></td>
+
+                                                          @{
+                                                              int a = (item.Stuffs.FirstOrDefault(x => x.KampanyaID == item.KampanyaId).Miktari);
+                                                              int b = (item.Stuffs.FirstOrDefault(x => x.KampanyaID == item.KampanyaId).KalanMiktar);//giden miktar
+                                                              int c = a - b;
+                                                                <!--    <td>
+                                                                        b
+                                                                    </td>-->
+                                                        }
+                                                                
+                                                              <!--  <td>
+                                                                    @item.Stuffs.FirstOrDefault(x => x.KampanyaID == item.KampanyaId).Miktari
+                                                                </td>-->
+                                                               
+                                                                <td><a href="/Kampanya/Yenile/@item.KampanyaId">Edit</a></td>
+                                                            </tr>
+                                                            }
+                                                                }
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="home3">
+                                            <h5>Project Detail</h5>
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Project name</th>
+                                                        <th>Goal</th>
+                                                        
+
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+                                                    @if (ViewBag.bitmis != null)
+                                                    {
+                                                        foreach (WWD.Models.Kampanya item in ViewBag.bitmis)
+                                                        {
+                                                            <tr>
+                                                                <td><a href="/Kampanya/KampanyaDetay/@item.KampanyaId">@item.Adi</a></td>
+                                                             @for (int i = 0; i < item.Stuffs.Count(); i++)
+                                                             {
+                                                                <td> @item.Stuffs.FirstOrDefault(x => x.KampanyaID == item.KampanyaId).Miktari</td>
+}
+                                                                   
+
+                                                            </tr>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <p>You will see information</p>
+                                                            </td>
+                                                            <td>
+                                                                <p>about donation here!!!</p>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="home4">
+                                            <h5>Donations Detail</h5>
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Project ID</th>
+                                                        <th>My Support</th>
+                                                        <th>Free Shipment Code</th>
+                                                        <th>Shipment Approve Code</th>
+                                                        <th>Is arrived?</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (ViewBag.destekleri != null)
+                                                    {
+                                                        foreach (WWD.Models.Donate item in ViewBag.destekleri)
+                                                        {
+                                                            <tr>
+
+                                                                <td>@item.KampanyaID</td>
+                                                                <td>@item.GonderiMiktari</td>
+                                                                <td>@ViewBag.temp </td>
+                                                                @if (item.KargoTakipNo == null)
+                                                                {
+                                                                    <td><form method="post" action="/Kampanya/GlnBagsOnay/@item.DonateId"><input type="text" class="form-control" placeholder="Code" name="KargoTakipNo" required /><button type="submit">Send</button></form></td>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <td>@item.KargoTakipNo</td>
+                                                                }
+
+                                                                @if (item.VardiMi == true)
+                                                                {
+                                                                    <td><i class="fa fa-check-square"></i></td>	}
+                                                                else
+                                                                {
+                                                                    <td><i class="fa fa-automobile"></i></td>
+                                                                }
+                                                            </tr>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <p>You will see information  </p>
+                                                            </td>
+                                                            <td><p>about</p></td>
+                                                            <td><p>donation</p></td>
+                                                            <td><p>here</p></td>
+                                                            <td><p>!!!</p></td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="home5">
+                                            <h5>Donations Detail</h5>
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Project name</th>
+                                                        <th>Sended from</th>
+                                                        <th>Amount</th>
+                                                        <th>Shipment Approve Code</th>
+                                                        <th>Is true?</th>
+
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if (ViewBag.gelendestek != null)
+                                                    {
+                                                        foreach (WWD.Models.Donate item in ViewBag.gelendestek)
+                                                        {
+                                                            <tr>
+                                                                <td>@item.Kampanya.Adi</td>
+                                                                <td>@item.Kullanici.KullaniciIsim</td>
+                                                                <td>@item.GonderiMiktari</td>
+                                                                <td>@item.KargoTakipNo</td>
+                                                                <td><a class="btn btn-success onay" href="#" name="@item.DonateId" data-tr="@item.Stuff.StuffId">Approve</a><a class="btn btn-danger reddet" href="#" name="@item.DonateId">Reject</a></td>
+
+                                                            </tr>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <p>You will see information  </p>
+                                                            </td>
+                                                            <td><p>about</p></td>
+                                                            <td><p>donation</p></td>
+                                                            <td><p>here</p></td>
+                                                            <td><p>!!!</p></td>
+
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                                                                    }
+
+
+                    </div>
+                </div>
+                <aside class="col-md-3"></aside>
+            </div>
+        </div>
+    </div>
+    <!--// MainSection //-->
+</div>
+@section script{
+
+    <script>
+        $(document).ready(function myfunction() {
+            $('.onay').click(function myfunction() {
+                var data1 = $(this).attr("name");
+                var data2 = $(this).data("tr");
+                $.ajax({
+                    type: 'POST',
+                    url: "/Kampanya/Onayla/",
+                    data: { id: data1 ,tr:data2},
+                    success: function myfunction() {
+                        alert("Successfully Done");
+                        window.location.reload(true);
+                    },
+                    error: function myfunction() {
+                        alert("Error");
+                    }
+                });
+            });
+            $('.reddet').click(function myfunction() {
+                var data = $(this).attr("name");
+                $.ajax({
+                    type: 'POST',
+                    url: "/Kampanya/Red/",
+                    data: { id: data },
+                    success: function myfunction() {
+                        alert("Successfully Done");
+                        window.location.reload(true);
+                    },
+                    error: function myfunction() {
+                        alert("Error");
+                    }
+                });
+            });
+            $('.kaldir').click(function myfunction() {
+                var data = $(this).attr("name");
+
+                $.ajax({
+                    type: 'POST',
+                    url: "/Kampanya/KampanyaSil/",
+                    data: { id: data },
+                    success: function myfunction() {
+                        alert("Succesfully Done");
+                        window.location.reload(true);
+                    },
+                    error: function myfunction() {
+                        alert("Not working Now");
+                    }
+
+                });
+            });
+        });
+    </script>
+
+}

@@ -1,0 +1,191 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@section sitil{
+
+
+
+
+    <!-- Css Files -->
+    <link src="/Content/css/bootstrap.css" rel="stylesheet">
+    <link src="/Content/css/font-awesome.css" rel="stylesheet">
+    <link src="/Content/style.css" rel="stylesheet">
+    <link src="/Content/css/color.css" rel="stylesheet">
+    <link src="/Content/css/dl-menu.css" rel="stylesheet">
+    <link src="/Content/css/flexslider.css" rel="stylesheet">
+    <link src="/Content/css/prettyphoto.css" rel="stylesheet">
+    <link src="/Content/css/responsive.css" rel="stylesheet">
+    <!-- Color Css Files Start -->
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-one.css" title="color-one" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-two.css" title="color-two" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-three.css" title="color-three" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-four.css" title="color-four" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-five.css" title="color-five" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-six.css" title="color-six" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-seven.css" title="color-seven" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-eight.css" title="color-eight" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-nine.css" title="color-nine" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/color-ten.css" title="color-ten" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/pattren1.css" title="pattren1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/pattren2.css" title="pattren2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/pattren3.css" title="pattren3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/pattren4.css" title="pattren4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/pattren5.css" title="pattren5" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/background1.css" title="background1" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/background2.css" title="background2" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/background3.css" title="background3" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/background4.css" title="background4" media="screen" />
+    <link rel="alternate stylesheet" type="text/css" src="/Content/switcher/background5.css" title="background5" media="screen" />
+
+}
+@model WWD.Models.Donate
+<div class="as-main-content">
+    <!--// MainSection //-->
+    <div class="as-main-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="as-donation-form">
+                        <h2>Project <span class="as-color">INFORMATION</span></h2>
+
+                        <form method="post" action="/Kampanya/KampanyaBaslat" enctype="multipart/form-data">
+                            <ul class="row">
+
+                                <li class="col-md-6"> <input type="text" placeholder="Your Address:" name="Adres" required> </li>
+
+                                <li class="col-md-6"> <input type="text" placeholder="Project Name:" name="Adi" required> </li>
+
+
+                                <li class="col-md-6"> <input type="text" placeholder="City:" name="Sehir" required> </li>
+                                <li class="col-md-6"> <input type="text" placeholder="Country:" name="Ulke" required> </li>
+
+                                <li class="col-md-6">
+                                    <label class="as-style">
+                                        <select name="KategoriID" required>
+                                            <option value="">Chose Category</option>
+                                            @if (ViewBag.kategoriler != null)
+                                            {
+                                                foreach (WWD.Models.Kategori ktg in ViewBag.kategoriler)
+                                                {
+                                                    <option value="@ktg.KategoriId">@ktg.KategoriAdi</option>
+                                                }
+                                            }
+                                        </select>
+                                    </label>
+                                </li>
+                                <li class="col-md-6">
+                                    <table class="table" id="dynamic_field2">
+                                        <thead>
+                                            <tr>
+                                                <th>Choose Pictures</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="stufflist2">
+                                                <td><input type="file" name="ResimID" /></td>
+                                                <td><a name="add2" id="add2" class="btn btn-success glyphicon glyphicon-plus addmore2"></a></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+
+
+
+                                </li>
+
+                                <li class="col-md-12">
+                                    <table class="table" id="dynamic_field">
+                                        <thead>
+                                            <tr>
+                                                <th>Stuff</th>
+                                                <th>Quantity</th>
+                                                <th>Unit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="stufflist">
+                                                <td><input type="text" name="StuffName" required/></td>
+                                                <td><input type="number" name="Miktari" required min="1"/></td>
+                                                <td>
+                                                    <select name="Birim" required>
+                                                        <option disabled>Choose Unit</option>
+                                                        <option value="Pieces">Pieces</option>
+                                                        <option value="Kg">Kg</option>
+                                                        <option value="Oz">Oz</option>
+                                                        <option value="Pound">Pound</option>
+                                                        <option value="Lt">Lt</option>
+                                                        <option value="Ton">Ton</option>
+                                                       
+                                                    </select>
+                                                </td>
+                                                <td><a name="add" id="add" class="btn btn-success glyphicon glyphicon-plus addmore"></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                   </li>
+                                <li class="col-md-6">
+                                    <input type="text" placeholder="Postal Code:" name="PostalCode" required>
+                                </li>
+                                <li class="col-md-6"> <label>Project's Profile Image :</label> <input type="file" placeholder="" name="kampresim"> </li>
+                                <li class="col-md-12"> <label>About Project:</label><textarea type="text" placeholder="About Project:" rows="10" class="form-control" name="Aciklama" required> </textarea></li>
+                                <li class="col-md-6"><button type="submit" value="Start Now" class="as-bgcolor"></button></li>
+                            </ul>
+                            <button type="submit" class="btn btn-block btn-success">Start it</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// MainSection //-->
+</div>
+@section script{
+    <script>
+        $(document).ready(function myfunction() {
+            var i = 1;
+            $('.addmore').on('click', function myfunction() {
+                i++;
+                $('#dynamic_field').append('<tr class="stufflist" id="row' + i + '"> <td><input type="text" name="StuffName"/></td> <td><input type="number" name="Miktari" required min="1"/></td><td><select name="Birim" required><option disabled>Choose Unit</option><option value="Pieces">Pieces</option><option value="Kg">Kg</option><option value="Oz">Oz</option><option value="Pound">Pound</option><option value="Lt">Lt</option><option value="Ton">Ton</option></select></td> <td><button name="remove" id="' + i + '" class="btn btn-danger btn-remove hayda">X</button></td></tr>')
+                //  $('tbody').append('<tr class="stufflist" id="row' + i + '"> <td><input type="text" name="StuffName"/></td>  <td><input type="number" name="Miktari"/></td><td><input type="text" name="Birim"/></td> <td><button name="remove" id="'+i+'" class="btn btn-danger btn-remove hayda">X</button></td></tr>');
+            });
+            $(document).on('click', '.btn-remove', function myfunction() {
+                var button_id = $(this).attr("id");
+                $("#row" + button_id + "").remove();
+
+            });
+
+            var a = 1;
+            $('.addmore2').on('click', function myfunction() {
+                a++;
+                $('#dynamic_field2').append('<tr class="stufflist2" id="row2' + a + '"> <td><input type="file" name="ResimID" /></td> <td><button name="remove" id="' + a + '" class="btn btn-danger btn-remove hayda2">X</button></td></tr>')
+                //  $('tbody').append('<tr class="stufflist" id="row' + i + '"> <td><input type="text" name="StuffName"/></td>  <td><input type="number" name="Miktari"/></td><td><input type="text" name="Birim"/></td> <td><button name="remove" id="'+i+'" class="btn btn-danger btn-remove hayda">X</button></td></tr>');
+            });
+            $(document).on('click', '.btn-remove', function myfunction() {
+                var button_id = $(this).attr("id");
+                $("#row2" + button_id + "").remove();
+
+            });
+        });
+    </script>
+
+    <script src="/Content/script/jquery.min.js"></script>
+    <script src="/Content/script/modernizr.js"></script>
+    <script src="/Content/script/bootstrap.min.js"></script>
+    <script src="/Content/script/jquery.dlmenu.js"></script>
+    <script src="/Content/script/flexslider-min.js"></script>
+    <script src="/Content/script/goalProgress.min.js"></script>
+    <script src="/Content/script/jquery.countdown.min.js"></script>
+    <script src="/Content/script/jquery.prettyphoto.js"></script>
+    <script src="/Content/script/waypoints-min.js"></script>
+    <script src="/Content/script/owl.carousel.min.js"></script>
+    <script src="/Content/script/newsticker.js"></script>
+    <script src="/Content/script/parallex.js"></script>
+    <script src="/Content/script/styleswitch.js"></script>
+    <script src="/Content/script/functions.js"></script>
+
+}

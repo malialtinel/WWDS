@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Yenile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid" style="background-color:white;">
+    <div class="as-donation-form">
+        <form method="post" action="/Kampanya/Yenile/@Url.RequestContext.RouteData.Values["id"]" enctype="multipart/form-data">
+            <h2>Edit <span class="as-color">INFORMATION</span></h2>
+            <ul class="row">
+                <li class="col-md-6"> <label>New Profil Photo for Project</label><input type="file" placeholder="New Foto" name="resim12"> </li>
+
+                <li class="col-md-12">
+                    <label>Add New Stuff</label>
+                    <table class="table" id="dynamic_field">
+                        <thead>
+                            <tr>
+                                <th>Stuff</th>
+                                <th>Quantity</th>
+                                <th>Unit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="stufflist">
+                                <td><input type="text" name="StuffName" /></td>
+                                <td><input type="number" name="Miktari" min="1"/></td>
+                                <td><input type="text" name="Birim" /></td>
+                                <td><a name="add" id="add" class="btn btn-success glyphicon glyphicon-plus addmore"></a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </li>
+
+                <li class="col-md-6">
+                    <label>Extra Photo's</label>
+                    <table class="table" id="dynamic_field2">
+                        <thead>
+                            <tr>
+                                <th>Choose Pictures</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="stufflist2">
+                                <td><input type="file" name="ResimID" /></td>
+                                <td><a name="add2" id="add2" class="btn btn-success glyphicon glyphicon-plus addmore2"></a></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </li>
+                <li class="col-md-12"> <label>About Campaign:</label><textarea type="text" placeholder="About Campaign:" rows="10" class="form-control" name="Aciklama"> </textarea></li>
+                <li class="col-md-6"><input type="submit" value="Edit" class="as-bgcolor"></li>
+            </ul>
+        </form>
+    </div>
+</div>
+@section script{
+    <script>
+        $(document).ready(function myfunction() {
+            var i = 1;
+            $('.addmore').on('click', function myfunction() {
+                i++;
+                $('#dynamic_field').append('<tr class="stufflist" id="row' + i + '"> <td><input type="text" name="StuffName" /></td>  <td><input type="number" name="Miktari" min="1" /></td><td><input type="text" name="Birim" /></td> <td><button name="remove" id="' + i + '" class="btn btn-danger btn-remove hayda">X</button></td></tr>')
+                //  $('tbody').append('<tr class="stufflist" id="row' + i + '"> <td><input type="text" name="StuffName" /></td>  <td><input type="number" name="Miktari" /></td><td><input type="text" name="Birim" /></td> <td><button name="remove" id="'+i+'" class="btn btn-danger btn-remove hayda">X</button></td></tr>');
+            });
+            $(document).on('click', '.btn-remove', function myfunction() {
+                var button_id = $(this).attr("id");
+                $("#row" + button_id + "").remove();
+
+            });
+            var a = 1;
+            $('.addmore2').on('click', function myfunction() {
+                a++;
+                $('#dynamic_field2').append('<tr class="stufflist2" id="row2' + a + '"> <td><input type="file" name="ResimID" /></td> <td><button name="remove" id="' + a + '" class="btn btn-danger btn-remove hayda2">X</button></td></tr>')
+                //  $('tbody').append('<tr class="stufflist" id="row' + i + '"> <td><input type="text" name="StuffName"/></td>  <td><input type="number" name="Miktari"/></td><td><input type="text" name="Birim"/></td> <td><button name="remove" id="'+i+'" class="btn btn-danger btn-remove hayda">X</button></td></tr>');
+            });
+            $(document).on('click', '.btn-remove', function myfunction() {
+                var button_id = $(this).attr("id");
+                $("#row2" + button_id + "").remove();
+
+            });
+        });
+    </script>
+
+}

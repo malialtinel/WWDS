@@ -1,0 +1,114 @@
+/*	Media 768Px Start */
+@media (min-width: 768px) and (max-width: 990px) {
+	.as-menuwrapper { display: inline-block; }
+	.main-navigation,.as-captiontitle span { display: none; }
+	.as-caption { margin-top: 0px; }
+	h1 { font-size: 30px; }
+	.as-captiontitle { margin-bottom: 15px; }
+	.as-caption a { font-size: 14px; padding: 5px 20px; }
+
+	/* MainGrid */
+	.col-md-3,.col-md-4 { display: inline-block; margin-left: -4px; float: none !important; vertical-align: top; width: 50%; }
+	.as-blogs > ul > li,.as-events > ul > li,.as-causes-list > ul > li,.as-volunteer > ul > li { float: left; }
+
+	/* SubHeader */
+	.as-minheader { padding-top: 147px; }
+	.as-minheader-wrap [class*="col-md-"] { width: 100%; text-align: center; }
+	.as-page-title { margin-bottom: 15px; }
+	.as-page-title,.as-breadcrumb { float: none; display: inline-block; width: auto; }
+	.as-page-title p { display: inline; }
+	.as-counter ul li { margin-bottom: 35px; }
+	.as-list-view ul li figure, .event-thumb-section { width: 100%; }
+	.as-list-view ul li .event-thumb-section ~ .as-event-info { padding: 0px; float: left; width: 100%; }
+	.as-event-caption { padding-top: 45px; }
+	.as-nextprev-post li { float: left; width: 100%; margin-bottom: 20px; }
+	.as-team-wrap { padding-bottom: 20px; }
+	.as-main-content { overflow: hidden; }
+}
+
+/* Media 420Px Start */
+@media (max-width: 767px) {
+	/* Header */
+	.as-menuwrapper { display: inline-block; }
+	.main-navigation { display: none; }
+	.as-absolute { position: relative; background-color: #333; float: left; width: 100%; }
+	.as-stripinfo { display: none; }
+	.as-header-bar { text-align: center; }
+	.as-header-bar .col-md-10 { display: inline-block; width: 100%; }
+	.as-header-bar .col-md-2 { width: 100%; }
+	.logo { display: inline-block; float: none; }
+	/* MainBanner */
+	.as-captiontitle span { display: none; }
+	.as-caption { margin-top: -40px; padding-left: 40px; }
+	h1 { font-size: 30px; }
+	.as-captiontitle { margin-bottom: 15px; }
+	.as-caption a { font-size: 14px; padding: 5px 20px; }
+
+	/* MainGrid */
+	.col-md-3,.col-md-4 { display: inline-block; margin-left: -4px; float: none !important; vertical-align: top; width: 50%; }
+	/* Blog */
+	.as-blogmedium-view figure,.as-services ul li.col-md-4,.as-theme-action h2 { width: 100%; }
+	.as-blogmedium-view figure ~ .as-blog-info { float: left; width: 100%; padding: 25px; }
+	/* SubHeader */
+	.as-minheader { padding-top: 58px; height: 200px; }
+	.as-minheader-wrap [class*="col-md-"] { width: 100%; text-align: center; }
+	.as-page-title { margin-bottom: 15px; }
+	.as-page-title,.as-breadcrumb { float: none; display: inline-block; width: auto; }
+	.as-page-title p { display: inline; }
+	.as-counter ul li { margin-bottom: 35px; }
+	.as-blogs > ul > li,.as-events > ul > li,.as-volunteer > ul > li { float: left; }
+	blockquote { padding: 30px 60px; }
+	blockquote:after,blockquote:before { font-size: 30px; }
+	.as-list-view ul li figure, .event-thumb-section { width: 100%; }
+	.as-list-view ul li .event-thumb-section ~ .as-event-info { padding: 0px; float: left; width: 100%; }
+	.as-nextprev-post li { float: left; width: 100%; margin-bottom: 20px; }
+	.as-event-contdown h2,.countdown-period { font-size: 14px; }
+	.countdown-amount,.countdown-section:before { font-size: 20px; }
+	.as-cause-cell,.as-causes-list > ul > li,.as-volunteer.as-teamlist-view figure { float: left; width: 100%; }
+	.as-cause-cell:nth-child(2), .as-cause-cell:nth-child(3),.as-causes-list figure,.as-detail-strip .as-causes-strip { width: 100%; }
+	.as-cause-cell { border: 1px solid #dddddd; border-bottom: none; } .as-cause-cell:last-child { border-bottom: 1px solid #dddddd; }
+	.as-detail-strip .as-causes-strip { margin-bottom: 15px; }
+	.as-teamlist-view figure ~ .as-team-info,.as-team-thumb ~ .as-team-detail { float: left; width: 100%; padding: 20px; }
+	.as-teamlist-view figure { border: none !important; }
+	.as-volunteer.as-teamlist-view > ul > li,.as-donation-form ul li { width: 50%; }
+	.as-team-thumb,.as-images { width: 100%; }
+	.as-summary { width: 100%; padding-left: 0px; margin-bottom: 25px; }
+	.as-underconstruction .countdown-section { width: 25% !important; }
+	.modal-dialog,.modal-body { width: 100%; }
+	.as-main-content { overflow: hidden; }
+
+	/* Footer */
+	.backtop-btn { left: 50%; top: -40px; }
+}
+
+/* Media 300Px Start */
+@media (max-width: 480px) {
+	.as-menuwrapper { max-width: 150px; }
+	.as-donate-btn { padding: 7px 10px; }
+	.as-social-media li { padding: 0px 22px 0 0; }
+	/* MainBanner */
+	.as-caption { margin-top: -50px; }
+	h1 { font-size: 20px; }
+	.as-caption a { font-size: 13px; padding: 0 15px; }
+	.flex-direction-nav a { font-size: 20px; height: 40px; padding: 5px 10px 0 4px; width: 20px; }
+	.flex-direction-nav .flex-next { padding: 5px 0 0 5px; }
+	/* MainGrid */
+	.col-md-3,.col-md-4,.col-md-6,.as-theme-action h2 { float: left; width: 100%; }
+	.backtop-btn { top: -64px; }
+	.as-minheader { padding-top: 58px; }
+	.as-large-view .as-bloghover ul { display: none; }
+	.as-form form p input[type="text"],.as-form form p.as-comment { width: 100%; }
+	.as-form form p.as-comment { position: relative; top: auto; float: left; width: 100%; padding: 0px; }
+	.as-form form p.as-submit { float: left; padding: 15px 0 0 0px; }
+	.as-event-caption { padding-top: 20px; } .countdown-period { font-size: 11px; }
+	.as-nextprev-post li h4 { font-size: 13px; }
+	.as-volunteer.as-teamlist-view > ul > li,.as-donation-form ul li { width: 100%; }
+}
+
+/* Media 940Px Start */
+@media screen and (min-width: 991px) and (max-width: 1054px) {
+	.main-navigation > ul > li > a { padding: 25px 6px 22px; }
+	.as-blogmedium-view figure { width: 184px; }
+	.as-blogmedium-view figure ~ .as-blog-info { padding: 13px 20px 0 200px; }
+	.as-blog-wrap { padding-bottom: 30px; }
+}

@@ -1,0 +1,398 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model IEnumerable<WWD.Models.Kampanya>
+@helper Kisalt(string metin)
+{
+if (metin.Length > 30)
+{
+        <p>@metin.Substring(0, 30)</p>
+}
+else
+{
+        <p>@metin</p>
+}
+
+
+}
+@helper BKisalt(string metin)
+{
+if (metin.Length > 50)
+{
+        <p>@metin.Substring(0, 50)</p>
+}
+else
+{
+        <p>@metin</p>
+}
+
+
+}
+<div class="as-main-section" style="padding:47px 0px 0px 0px; background-color:white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="as-fancytitle"> <h2>How you can help?</h2> </div>
+                <div class="as-fancy-divider-wrap">
+                    <div class="as-fancy-divider"> <span class="as-first-dote"></span> <span class="as-sec-dote as-bgcolor"></span> <span class="as-third-dote"></span> </div>
+                </div>
+                <div class="as-title-text"><p>Take Action for Entire World.</p></div>
+            </div>
+            <div class="col-md-12 minus-element-margin">
+                <div class="as-services as-small-view">
+                    <ul class="row">
+                        <li class="col-md-4">
+                            <div class="as-service-wrap">
+                                <span class="as-icon"> <i class="flaticon-help1"></i> </span>
+                                <div class="as-infowrap">
+                                    <h2>VOLUNTEERING</h2>
+                                    <p>Human power mostly effective with heart and muscle,rather than stuff.</p>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="as-service-wrap">
+                                <span class="as-icon"> <i class="flaticon-group"></i> </span>
+                                <div class="as-infowrap">
+                                    <h2>Help & Support</h2>
+                                    <p>You can share your stuff with needed people.</p>
+                                   
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="as-service-wrap">
+                                <span class="as-icon"> <i class="flaticon-almsgiving"></i> </span>
+                                <div class="as-infowrap">
+                                    <h2>IMPACT FOR EVERYONE</h2>
+                                    <p>Share your impactable story via us and encourage the people.</p>
+                                   
+                                </div>
+                            </div>
+                        </li>
+                        <!-- <li class="col-md-4">
+                          <div class="as-service-wrap">
+                            <span class="as-icon"> <i class="flaticon-customer-service2"></i> </span>
+                            <div class="as-infowrap">
+                              <h2>VOLUNTEERING</h2>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                              <a href="#">More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="col-md-4">
+                          <div class="as-service-wrap">
+                            <span class="as-icon"> <i class="flaticon-wheelchair10"></i> </span>
+                            <div class="as-infowrap">
+                              <h2>Help & Support</h2>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                              <a href="#">More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="col-md-4">
+                          <div class="as-service-wrap">
+                            <span class="as-icon"> <i class="flaticon-laptopcomputer14"></i> </span>
+                            <div class="as-infowrap">
+                              <h2>IMPACT FOR EVERYONE</h2>
+                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                              <a href="#">More <i class="fa fa-angle-right"></i></a>
+                            </div>
+                          </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="as-main-section" style="padding:0px 0px 50px 0px;background-color:white; ">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="as-fancytitle"> <h2>Our Projects</h2> </div>
+                <div class="as-fancy-divider-wrap">
+                    <div class="as-fancy-divider"> <span class="as-first-dote"></span> <span class="as-sec-dote as-bgcolor"></span> <span class="as-third-dote"></span> </div>
+                </div>
+            </div>
+            <div class="as-causes as-causes-grid">
+                <ul class="row">
+                    @if (Model != null)
+                    {
+
+                        foreach (WWD.Models.Kampanya item in Model)
+                        {
+                            <li class="col-md-3">
+                                <figure>
+                                    <a href="#"><img src="@item.KampanyaFoto" alt=""></a>
+                                    <figcaption>
+                                        <div class="as-donarhover">
+                                            <i class="flaticon-profile27 as-color"></i>
+                                            <a href="#">Donors: <span>@item.Donates.Where(x=>x.KampanyaID==item.KampanyaId).Count()</span></a>
+                                        </div>
+                                    </figcaption>
+                                </figure>
+                                <div class="as-causes-text">
+                                    <div class="as-causes-info">
+                                        <h3><a href="#">@BKisalt(item.Adi)</a></h3>
+                                        <p>@Kisalt(item.Aciklama)</p>
+                                    </div>
+                                    <div class="as-causes-strip">
+                                        <div data-percent="100%" class="causes-sec">
+                                            <div class="as-causebar">
+                                                <div style="background-color: #edb542; width:100%;" class="percent-bar"></div>
+                                            </div>
+                                        </div>
+                                      
+         
+                                    </div>
+                                    <a href="/Kampanya/KampanyaDetay/@item.KampanyaId" class="as-causes-btn">Donate Now</a>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="as-main-section" style="padding:50px 0px 20px 0px;background-color:white; ">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="as-fancytitle"> <h2>volunteers staff</h2> </div>
+                <div class="as-fancy-divider-wrap">
+                    <div class="as-fancy-divider"> <span class="as-first-dote"></span> <span class="as-sec-dote as-bgcolor"></span> <span class="as-third-dote"></span> </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="as-volunteer as-teamlist-view">
+                    <ul class="row">
+
+                        <li class="col-md-6">
+                            <div class="as-team-wrap">
+                                <figure><a href="#"><img src="/Content/images/img002.jpg" alt=""></a></figure>
+                                <div class="as-team-info">
+                                    <h2><a href="#">Muhammed Ali ALTINEL</a></h2>
+                                    <span>C.E.O</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                                    <ul class="as-team-network">
+                                        <li><a href="#" class="as-bgcolorhover fa fa-facebook"></a></li>
+                                        <li><a href="#" class="as-bgcolorhover fa fa-twitter"></a></li>
+                                        <li><a href="#" class="as-bgcolorhover fa fa-linkedin"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-6">
+                            <div class="as-team-wrap">
+                                <figure><a href="#"><img src="/Content/serdar.jpeg" alt=""></a></figure>
+                                <div class="as-team-info">
+                                    <h2><a href="#">Serdar Ünlüsoy</a></h2>
+                                    <span>C.E.O</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                                    <ul class="as-team-network">
+                                        <li><a href="#" class="as-bgcolorhover fa fa-facebook"></a></li>
+                                        <li><a href="#" class="as-bgcolorhover fa fa-twitter"></a></li>
+                                        <li><a href="#" class="as-bgcolorhover fa fa-linkedin"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-6">
+                            <div class="as-team-wrap">
+                                <figure><a href="#"><img src="/Content/mercan.jpeg" alt=""></a></figure>
+                                <div class="as-team-info">
+                                    <h2><a href="#">Mercan Gültekin</a></h2>
+                                    <span>C.E.O</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                                    <ul class="as-team-network">
+                                        <li><a href="#" class="as-bgcolorhover fa fa-facebook"></a></li>
+                                        <li><a href="#" class="as-bgcolorhover fa fa-twitter"></a></li>
+                                        <li><a href="#" class="as-bgcolorhover fa fa-linkedin"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-6">
+                            <div class="as-team-wrap">
+                                <figure><a href="#"><img src="~/Content/images/erdal.jpg" alt=""></a></figure>
+                                <div class="as-team-info">
+                                    <h2><a href="#">Erdal Yurtseven</a></h2>
+                                    <span>C.E.O</span>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                                    <ul class="as-team-network">
+                                        <li><a href="#" class="as-bgcolorhover fa fa-facebook"></a></li>
+                                        <li><a href="#" class="as-bgcolorhover fa fa-twitter"></a></li>
+                                        <li><a href="#" class="as-bgcolorhover fa fa-linkedin"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="as-main-section" style="padding:47px 0px 0px 0px; background-color:white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="as-fancytitle"> <h2>Our Sponsors</h2> </div>
+                <div class="as-fancy-divider-wrap">
+                    <div class="as-fancy-divider"> <span class="as-first-dote"></span> <span class="as-sec-dote as-bgcolor"></span> <span class="as-third-dote"></span> </div>
+                </div>
+                <div class="as-causes as-causes-grid">
+                    <ul class="row">
+
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="#"><img src="~/Content/images/ptt.png" alt=""></a>
+                                <figcaption>
+
+                                </figcaption>
+                            </figure>
+
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="#"><img src="~/Content/images/resim.jpg" alt=""></a>
+                                <figcaption>
+
+                                </figcaption>
+                            </figure>
+
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="#"><img src="/Content/images/kızılay.jpg" alt=""></a>
+                                <figcaption>
+
+                                </figcaption>
+                            </figure>
+
+                        </li>
+                        <li class="col-md-3">
+                            <figure>
+                                <a href="#"><img src="~/Content/images/kızılhac.jpg" alt=""></a>
+                                <figcaption>
+
+                                </figcaption>
+                            </figure>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="col-md-12 minus-element-margin">
+                    <div class="as-services as-small-view">
+                        <ul class="row">
+                            <li class="col-md-4">
+                                <div class="as-service-wrap">
+                                    <div class="as-infowrap">
+                                        <h2>Ministry of Family And Social Policy</h2>
+                                        <p>We are appriated for sharing our thoughts.</p>
+                                     <iframe></iframe>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-4">
+                                <div class="as-service-wrap">
+                                    <div class="as-infowrap">
+                                        <h2>Turk Kızılayı</h2>
+                                        <p>We are appriated for their community.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-4">
+                                <div class="as-service-wrap">
+
+                                    <div class="as-infowrap">
+                                        <h2>PTT</h2>
+                                        <p>We are appriated for carrying our shipment for free.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- <li class="col-md-4">
+                              <div class="as-service-wrap">
+                                <span class="as-icon"> <i class="flaticon-customer-service2"></i> </span>
+                                <div class="as-infowrap">
+                                  <h2>VOLUNTEERING</h2>
+                                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                  <a href="#">More <i class="fa fa-angle-right"></i></a>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="col-md-4">
+                              <div class="as-service-wrap">
+                                <span class="as-icon"> <i class="flaticon-wheelchair10"></i> </span>
+                                <div class="as-infowrap">
+                                  <h2>Help & Support</h2>
+                                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                  <a href="#">More <i class="fa fa-angle-right"></i></a>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="col-md-4">
+                              <div class="as-service-wrap">
+                                <span class="as-icon"> <i class="flaticon-laptopcomputer14"></i> </span>
+                                <div class="as-infowrap">
+                                  <h2>IMPACT FOR EVERYONE</h2>
+                                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                  <a href="#">More <i class="fa fa-angle-right"></i></a>
+                                </div>
+                              </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>-->
+        </div>
+    </div>
+</div>
+<div class="as-main-section not-fullscreen background parallax" style="background:url(extra-images/parallex-bg2.jpg); padding: 60px 0px 60px 0px; " data-img-width="1920" data-img-height="1080" data-diff="100">
+    <span class="full-pattren"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="as-counter">
+                    <ul class="row">
+                        <li class="col-md-3">
+                            <i class="flaticon-wheelchair10"></i>
+                            <div class="counter-info">
+                                <span class="word-count">@ViewBag.templ</span>
+                                <small>Projects</small>
+                            </div>
+                        </li>
+                   <li class="col-md-3">
+                            <i class="flaticon-customer-service2"></i>
+                            <div class="counter-info">
+                                <span class="word-count">@ViewBag.gulu</span>
+                                <small>Users</small>
+                            </div>
+                        </li>
+                        <li class="col-md-3">
+                            <i class="flaticon-laptopcomputer14"></i>
+                            <div class="counter-info">
+                                <span class="word-count">@ViewBag.lmet</span>
+                                <small>Donates</small>
+                            </div>
+                        </li>
+                         <!--<li class="col-md-3">
+                            <i class="flaticon-almsgiving"></i>
+                            <div class="counter-info">
+                                <span class="word-count">75</span>
+                                <small>Volunteers</small>
+                            </div>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

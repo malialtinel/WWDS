@@ -1,0 +1,130 @@
+﻿
+
+@{
+    ViewBag.Title = "KategoriDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section sitil{
+
+    <!-- Css Files -->
+    <link href="/Content/css/bootstrap.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.css" rel="stylesheet">
+    <link href="/Content/style.css" rel="stylesheet">
+    <link href="/Content/css/color.css" rel="stylesheet">
+    <link href="/Content/css/dl-menu.css" rel="stylesheet">
+    <link href="/Content/css/flexslider.css" rel="stylesheet">
+    <link href="/Content/css/prettyphoto.css" rel="stylesheet">
+    <link href="/Content/css/responsive.css" rel="stylesheet">
+
+}
+
+<!-- Color Css Files Start -->
+<!--// Main Wrapper //-->
+<div class="as-mainwrapper">
+
+
+    <!--// Main Content //-->
+    <div class="as-main-content">
+
+        <!--// MainSection //-->
+        <div class="as-main-section">
+            <div class="container">
+                <div class="row">
+                    @if (ViewBag.hayda != null)
+                    {
+                        <div class="col-md-12">
+
+                            <div class="as-shop-filter">
+                                <div class="as-content-title"> <h2> <span class="as-color">Results</span></h2> </div>
+
+                            </div>
+                            <div class="as-shop as-shop-list">
+                                <ul class="row">
+                                    @if (ViewBag.HAYDA != null)
+                                    {
+                                        foreach (WWD.Models.Kampanya item in ViewBag.HAYDA)
+                                        {
+                                            <li class="col-md-3">
+                                                <figure>
+                                                    <a class="as-shop-thumb" href="/Kampanya/KampanyaDetay/@item.KampanyaId"><img src="/Content/extra-images/shop-list-1.jpg" alt=""></a>
+
+                                                    <figcaption>
+                                                        <div class="as-shophover">
+
+
+                                                        </div>
+                                                    </figcaption>
+                                                </figure>
+                                                <div class="as-shopinfo">
+                                                    <h3><a href="/Kampanya/KampanyaDetay/@item.KampanyaId">@item.Adi</a></h3>
+
+                                                    <a href="/Kampanya/KampanyaDetay/@item.KampanyaId" class="as-cartbtn">GO TO PROJECT</a>
+                                                </div>
+                                            </li>
+                                        }
+                                    }
+
+
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Sorry,we couldn't find what you are looking for,please try something another :(</p><br />
+                        <p>Go back to new search <a href="/Home/Index"> <<< --- HOME </a></p>
+                    }
+
+                </div>
+            </div>
+        </div>
+        <!--// MainSection //-->
+    </div>
+    <!--// Footer //-->
+    <!--// Footer //-->
+    <div class="clearfix"></div>
+</div>
+<!--// Main Wrapper //-->
+<!-- Search Modal -->
+<div class="modal fade" id="searchmodal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header as-bgcolor">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+                <h4>Search</h4>
+            </div>
+            <div class="modal-body">
+                <form class="modal-search">
+                    <input type="text" placeholder="Enter any keyword and press enter" name="usrname" required>
+                    <label> <input type="submit" value=""> </label>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section script{
+
+
+    <script src="/Content/script/jquery.min.js"></script>
+    <script src="/Content/script/modernizr.js"></script>
+    <script src="/Content/script/bootstrap.min.js"></script>
+    <script src="/Content/script/jquery.dlmenu.js"></script>
+    <script src="/Content/script/flexslider-min.js"></script>
+    <script src="/Content/script/goalProgress.min.js"></script>
+    <script src="/Content/script/jquery.countdown.min.js"></script>
+    <script src="/Content/script/jquery.prettyphoto.js"></script>
+    <script src="/Content/script/waypoints-min.js"></script>
+    <script src="/Content/script/owl.carousel.min.js"></script>
+    <script src="/Content/script/newsticker.js"></script>
+    <script src="/Content/script/parallex.js"></script>
+    <script src="/Content/script/styleswitch.js"></script>
+    <script src="/Content/script/functions.js"></script>
+
+
+}
+<!-- Search Modal -->
+<!-- jQuery (necessary for JavaScript plugins) -->

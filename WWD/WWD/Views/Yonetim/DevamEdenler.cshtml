@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "DevamEdenler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="background-color:white">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Started By</th>
+                <th>Campaign Name</th>
+                <th>Category</th>
+                <th>Postal Code</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (WWD.Models.Kampanya item in ViewBag.devamedenler)
+            {
+                <tr>
+                    <td>@item.Kullanici.KullaniciIsim</td>
+                    <td><a href="/Kampanya/KampanyaDetay/@item.KampanyaId">@item.Adi</a></td>
+                    <td>@item.Kategori.KategoriAdi</td>
+                    <td>@item.PostalCode</td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>
+
